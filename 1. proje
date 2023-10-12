@@ -1,0 +1,28 @@
+import turtle
+t = turtle.Turtle()
+turtle.bgcolor("black")
+
+turtle.tracer(0,0)
+
+colors = ["red", "orange", "yellow", "green", "blue", "purple"]
+m = 0
+for kenar in range(3,7):
+    t.penup()
+    if kenar == 3:
+        t.goto(-200, 180)
+    elif kenar == 4:
+        t.goto(200, 180)
+    elif kenar == 5:
+        t.goto(-200, -180)
+    elif kenar == 6:
+        t.goto(200, -180)
+
+    t.pendown()
+    for n in range(360):
+        t.pencolor(colors[n%kenar])
+        t.forward(n * (1/kenar + 0.4))
+        t.left(360/kenar + 1)
+        t.width(n*kenar/300)
+
+turtle.update()
+turtle.tracer(1,10)
